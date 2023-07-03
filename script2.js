@@ -29,16 +29,6 @@ function DistribuicaoEletronica(numeroAtomico) {
     indiceSubnivel++;
   }
 
-
-  while (eletronsRestantes > 0) {
-    const subnivelAtual = subniveis[subniveis.length - 1];
-    const maxEletrons = subnivelAtual.includes("s") ? 2 : subnivelAtual.includes("p") ? 6 : subnivelAtual.includes("d") ? 10 : 14;
-    const eletronsSubnivel = Math.min(eletronsRestantes, maxEletrons);
-
-    distribuicao_eletronica.push(`${subnivelAtual}^${eletronsSubnivel}`);
-    eletronsRestantes -= eletronsSubnivel;
-  }
-
   if (distribuicao_eletronica.length > 0) {
     const ultimaDistribuicao = distribuicao_eletronica[distribuicao_eletronica.length - 1];
     const [subnivel, eletronsSubnivel] = ultimaDistribuicao.split('^');
